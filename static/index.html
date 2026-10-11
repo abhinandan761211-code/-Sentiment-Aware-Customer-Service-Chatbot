@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentiment-Aware Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">SA</div>
+        <div>
+          <h1>Sentiment Chatbot</h1>
+          <p>Llama 3 &middot; emotion-aware support</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Live status</h2>
+        <ul class="status-list" id="status-list">
+          <li><span>Sentiment model</span><b id="s-backend">…</b></li>
+          <li><span>Llama 3</span><b id="s-ollama">…</b></li>
+          <li><span>Model</span><b id="s-model">…</b></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Response policy</h2>
+        <div class="policy">
+          <div class="policy-row positive">
+            <span class="dot"></span>
+            <div><b>Positive</b><small>Warm &amp; appreciative</small></div>
+          </div>
+          <div class="policy-row neutral">
+            <span class="dot"></span>
+            <div><b>Neutral</b><small>Short &amp; informative</small></div>
+          </div>
+          <div class="policy-row negative">
+            <span class="dot"></span>
+            <div><b>Negative</b><small>Empathetic &amp; solution-focused</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Try an example</h2>
+        <div class="examples">
+          <button data-msg="Your support was very helpful. Thank you!">😊 Positive example</button>
+          <button data-msg="Can you tell me my order status?">😐 Neutral example</button>
+          <button data-msg="I am very disappointed. My order has been delayed for 5 days!">😠 Negative example</button>
+        </div>
+      </div>
+
+      <button class="reset" id="reset-btn">Clear conversation</button>
+    </aside>
+
+    <!-- ── Chat ───────────────────────────────────────────── -->
+    <main class="chat">
+      <header class="chat-header">
+        <div class="avatar">🤖</div>
+        <div>
+          <b>Aria — Support Assistant</b>
+          <small id="chat-subtitle">Analysing sentiment before every reply</small>
+        </div>
+      </header>
+
+      <div class="messages" id="messages">
+        <div class="msg bot">
+          <div class="bubble">
+            Hi! I'm Aria. Tell me what's going on — I read the <em>emotion</em> behind your
+            message as well as the words, so I can respond the right way.
+          </div>
+        </div>
+      </div>
+
+      <form class="composer" id="chat-form">
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="Type your message…"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

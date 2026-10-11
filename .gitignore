@@ -1,0 +1,83 @@
+# ──────────────────────────────────────────────────────────────
+#  .gitignore — Sentiment-Aware Customer Service Chatbot
+# ──────────────────────────────────────────────────────────────
+
+# ── Secrets / local config ───────────────────────────────────
+# Real environment file. Never commit credentials or host overrides.
+# .env.example is the template and MUST stay tracked, so it is negated below.
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Byte-compiled / optimized / DLL files
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ── Virtual environments ─────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ── Testing / coverage ───────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# ── Type checkers / linters / formatters ─────────────────────
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pytype/
+.cache/
+
+# ── Evaluation output ────────────────────────────────────────
+# Generated run artifacts; keep test_set.json (input) tracked.
+# baseline_results.json is a generated snapshot — uncommonly large,
+# regenerate with: python evaluation/evaluate.py --save-baseline
+evaluation/results.json
+evaluation/baseline_results.json
+
+# ── Machine-learning model caches ────────────────────────────
+# HuggingFace/transformers download cache (can be several GB).
+.cache/
+.huggingface/
+transformers_cache/
+
+# Ollama local model store (if ever pointed inside the project).
+.ollama/
+
+# ── Logs & runtime ───────────────────────────────────────────
+*.log
+logs/
+
+# ── OS / editor junk ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── Jupyter / notebooks (if used for report analysis) ────────
+.ipynb_checkpoints/
